@@ -2,4 +2,5 @@
 
 body{
     background-color: #111315;
+    interpolate-size:allow-keywords;
 }
