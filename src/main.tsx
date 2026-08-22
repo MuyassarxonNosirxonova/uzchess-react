@@ -2,6 +2,8 @@ import {createRoot} from "react-dom/client";
 import "./style.css"
 import {createBrowserRouter, RouterProvider} from "react-router";
 import CoursePage from "./features/courses/pages/CoursePage.tsx";
+import CourseDetailPage from "./features/courses/pages/CourseDetailPage.tsx";
+import LessonPlayerPage from "./features/courses/pages/LessonPlayerPage.tsx";
 import BooksPage from "./features/library/page/BooksPage.tsx";
 import {NewsPage} from "./features/news/pages/NewsPage.tsx";
 import {MainPage} from "./features/main/pages/MainPage.tsx";
@@ -20,6 +22,8 @@ const router = createBrowserRouter([
       { path: "main", element: <MainPage /> },
 
       { path: "courses", element: <CoursePage /> },
+      { path: "courses/:id", element: <CourseDetailPage /> },
+      { path: "courses/:courseId/lessons/:lessonId", element: <LessonPlayerPage /> },
       { path: "library", element: <BooksPage /> },
       { path: "news", element: <NewsPage /> },
       { path: "login", element: <LoginPage /> },

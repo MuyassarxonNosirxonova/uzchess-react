@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { Course } from "../../../types/course.types";
 import { formatPrice } from "../../../lib/formatPrice";
 
@@ -41,8 +42,10 @@ export function CourseCard({
     : formatPrice(finalPrice);
 
   return (
-    <div className="flex w-[676px] h-[189px] bg-[#1A1D1F] rounded-2xl p-5">
-
+    <Link
+      to={`/courses/${course.id}`}
+      className="flex w-[676px] h-[189px] bg-[#1A1D1F] rounded-2xl p-5 hover:bg-[#1E2124] transition"
+    >
 
       <div className="relative">
         <img
@@ -137,7 +140,11 @@ export function CourseCard({
           <div className="mt-1">
             <button
               type="button"
-              onClick={() => onToggleLike(course.id)}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onToggleLike(course.id);
+              }}
               aria-label="like"
             >
               <img
@@ -150,6 +157,6 @@ export function CourseCard({
 
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

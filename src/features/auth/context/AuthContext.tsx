@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { ACCESS_TOKEN_STORAGE_KEY } from "../../../api/axios";
-import { decodeJwtPayload } from "../lib/jwt";
+import { decodeJwtPayload } from "../jwt/jwt";
 import { AuthContext } from "./authContextDefinition.ts";
 
 function readAuthState() {

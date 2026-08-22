@@ -1,6 +1,7 @@
 import { apiClient } from "./axios";
 import type { PaginatedResult, PageQueryParams } from "../types/pagination.types";
-import type { author } from "../types/course.types";
+import type {Author} from "../types/course.types.ts";
+
 
 interface AuthorListParams extends PageQueryParams {
   search?: string;
@@ -8,7 +9,7 @@ interface AuthorListParams extends PageQueryParams {
 
 
 export async function getAuthors(params: AuthorListParams = {}) {
-  const { data } = await apiClient.get<PaginatedResult<author>>("/authors/list", {
+  const { data } = await apiClient.get<PaginatedResult<Author>>("/authors/list", {
     params,
   });
   return data;
